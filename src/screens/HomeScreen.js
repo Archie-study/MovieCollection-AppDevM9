@@ -10,6 +10,7 @@ const HomeScreen = () => {
                 data={movieData}
                 keyExtractor={(item) => item.id}
                 contentContainerStyle={styles.flatListContainer}
+                
                 // Display the movie Vertically
                 renderItem={({item}) => {
                     return (
@@ -28,6 +29,7 @@ const HomeScreen = () => {
                         </View>
                     )
                 }}
+
 
                 // Display the movie horizontally
                 ListHeaderComponent={
@@ -48,8 +50,16 @@ const HomeScreen = () => {
                         />
                     </View>
                 }
+
+                ListFooterComponent={
+                    <Text>
+                        An array of objects lets you store multiple values in a single variable. It storesa fixed-size sequential collection of elements of th same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type. 
+                    </Text>
+                }
             
             />
+
+            
         </View>
     )
 }
