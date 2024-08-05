@@ -16,7 +16,10 @@ const TryCodeScreen = () => {
                             style={styles.containerAnItem}
                             // {{  margin: 8, backgroundColor: 'lavender', borderWidth: 1 }}
                         >
-                            <Image source={{uri: item.imageLink}} style={{width: 100, height: 100}} />
+                            <Image source={{uri: item.imageLink}} 
+                                // style={{width: 100, height: 100}} 
+                                style={styles.imageStyle} 
+                            />
                             <Text>{item.name}</Text>
                             <Text>{item.gender}</Text>
                             <Text>{item.age}</Text>
@@ -33,7 +36,12 @@ const styles = StyleSheet.create({
         margin: 8,
         backgroundColor: 'lavender',
         borderWidth: 1,
+    },
+    imageStyle: {
+        width: 100,
+        height: 100
     }
+
 })
 
 export default TryCodeScreen;
