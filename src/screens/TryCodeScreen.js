@@ -13,7 +13,12 @@ const TryCodeScreen = () => {
                 renderItem = {({ item }) => {
                     return (
                         <View
-                            style={styles.containerAnItem}
+                            style={
+                                [
+                                    styles.containerAnItem,
+                                    { backgroundColor: item.gender.toLowerCase() === 'male' ? 'moccasin' : 'lavender'}
+                                ]
+                            }
                             // {{  margin: 8, backgroundColor: 'lavender', borderWidth: 1 }}
                         >
                             <Image source={{uri: item.imageLink}} 
