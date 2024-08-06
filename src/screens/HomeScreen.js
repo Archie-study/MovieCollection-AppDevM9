@@ -3,6 +3,7 @@ import { View, Text, FlatList, StyleSheet, Image } from 'react-native'
 import { movieData } from "../../data/MovieData";
 import { ShowMovie } from "../components/MovieComponent";
 import { useEffect, useState } from "react";
+import { Icon } from "react-native-elements";
 
 const HomeScreen = () => {
 
@@ -67,45 +68,74 @@ const HomeScreen = () => {
                                     source={{ uri: item.imageLink }}
                                 />
                                 <View style={styles.movieDescriptionContainer}>
-                                    <Text style={styles.title}>{item.title}</Text>
-                                    <View style={styles.yearContainer}>
-                                        <Text>{item.year}</Text>
+                                    
+                                    <View style={styles.titleContainer}>
+                                        <Icon 
+                                            name="title" 
+                                            type="material" 
+                                            size={24} 
+                                        />
+                                        <Text style={styles.title}>
+                                            {item.title}
+                                        </Text>
                                     </View>
-                                    {
-                                        item.rating === 5 ?
-                                            <Image 
-                                                style={styles.ratingStar}
-                                                source={require('../../assets/images/five-stars.png')} 
-                                            />
-                                            : 
-                                            item.rating === 4 ?
+                                    
+                                    <View style={styles.yearContainer}>
+                                        <Icon 
+                                            name="calendar" 
+                                            type="antdesign" 
+                                            size={24} 
+                                        />
+                                        <Text>
+                                            {item.year}
+                                        </Text>
+                                    </View>
+                                    
+                                    
+                                    {/* RATING */}
+                                    <View style={styles.ratingContainer}>
+                                        <Icon 
+                                            name="star-rate" 
+                                            type="material" 
+                                            size={24} 
+                                        />
+                                        {
+                                            item.rating === 5 ?
                                                 <Image 
                                                     style={styles.ratingStar}
-                                                    source={require('../../assets/images/four-stars.png')} 
+                                                    source={require('../../assets/images/five-stars.png')} 
                                                 />
-                                                :
-                                                item.rating === 3 ?
+                                                : 
+                                                item.rating === 4 ?
                                                     <Image 
                                                         style={styles.ratingStar}
-                                                        source={require('../../assets/images/three-stars.png')} 
+                                                        source={require('../../assets/images/four-stars.png')} 
                                                     />
                                                     :
-                                                    item.rating === 2 ?
+                                                    item.rating === 3 ?
                                                         <Image 
                                                             style={styles.ratingStar}
-                                                            source={require('../../assets/images/two-stars.png')} 
+                                                            source={require('../../assets/images/three-stars.png')} 
                                                         />
                                                         :
-                                                        item.rating === 1 ?
+                                                        item.rating === 2 ?
                                                             <Image 
                                                                 style={styles.ratingStar}
-                                                                source={require('../../assets/images/five-stars.png')} 
+                                                                source={require('../../assets/images/two-stars.png')} 
                                                             />
                                                             :
-                                                            null
+                                                            item.rating === 1 ?
+                                                                <Image 
+                                                                    style={styles.ratingStar}
+                                                                    source={require('../../assets/images/five-stars.png')} 
+                                                                />
+                                                                :
+                                                                null
 
-                                    }
-                                    {/* <Text>{item.rating}</Text> */}
+                                        }
+                                        {/* <Text>{item.rating}</Text> */}
+                                    </View>
+                                    
                                 </View>
                             </View>
                        
@@ -192,9 +222,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginLeft: 8
     },
+    titleContainer: {
+        marginTop: 8,
+        marginBottom: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
+        letterSpacing: 5
+    },
     yearContainer: {
         marginTop: 8,
-        marginBottom: 8
+        marginBottom: 8,
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    ratingContainer: {
+        marginTop: 8,
+        marginBottom: 8,
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     mainCategoryContainer: {
         marginTop: 8,
