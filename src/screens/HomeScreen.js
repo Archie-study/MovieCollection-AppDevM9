@@ -71,7 +71,41 @@ const HomeScreen = () => {
                                     <View style={styles.yearContainer}>
                                         <Text>{item.year}</Text>
                                     </View>
-                                    <Text>{item.rating}</Text>
+                                    {
+                                        item.rating === 5 ?
+                                            <Image 
+                                                style={styles.ratingStar}
+                                                source={require('../../assets/images/five-stars.png')} 
+                                            />
+                                            : 
+                                            item.rating === 4 ?
+                                                <Image 
+                                                    style={styles.ratingStar}
+                                                    source={require('../../assets/images/four-stars.png')} 
+                                                />
+                                                :
+                                                item.rating === 3 ?
+                                                    <Image 
+                                                        style={styles.ratingStar}
+                                                        source={require('../../assets/images/three-stars.png')} 
+                                                    />
+                                                    :
+                                                    item.rating === 2 ?
+                                                        <Image 
+                                                            style={styles.ratingStar}
+                                                            source={require('../../assets/images/two-stars.png')} 
+                                                        />
+                                                        :
+                                                        item.rating === 1 ?
+                                                            <Image 
+                                                                style={styles.ratingStar}
+                                                                source={require('../../assets/images/five-stars.png')} 
+                                                            />
+                                                            :
+                                                            null
+
+                                    }
+                                    {/* <Text>{item.rating}</Text> */}
                                 </View>
                             </View>
                        
@@ -174,6 +208,10 @@ const styles = StyleSheet.create({
     categoryText: {
         fontSize: 20,
         fontWeight: 'bold'
+    },
+    ratingStar: {
+        width: 100,
+        height: 20
     }
 
 })
