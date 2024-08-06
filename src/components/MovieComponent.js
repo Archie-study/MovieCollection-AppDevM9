@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
+import { Icon } from "react-native-elements";
 
 export const ShowMovie = (props) => {
     const { image, title, viewers } = props;
@@ -17,6 +18,11 @@ export const ShowMovie = (props) => {
 
 
             <View style={styles.viewersContainer}>
+                <Icon 
+                    name="eye" 
+                    type="font-awesome" 
+                    size={14} 
+                />
                 <View style={styles.viewersText}>
                     <Text>{viewers}</Text>
                 </View>

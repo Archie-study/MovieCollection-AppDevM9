@@ -2,3 +2,24 @@ Meeting 11 - Ternary Operator, Combine StyleSheet & Inline Style
 Link for Star Rating and Eye Icon
 => https://drive.google.com/drive/u/1/folders/19JQwwRqpmiQzAIYms7JhfAEeMSoTSKU-
 
+When you try using this command
+npx react-native-asset
+
+You need to create this file first 
+```react-native.config.js```
+
+```
+module.exports = {
+    assets: [
+        'node_modules/react-native-vector-icons'
+        // we take the assets from node_modules
+    ]
+}
+```
+
+After you create this file, try to run 
+```npx react-native-asset```
+
+Find the icon here : 
+=>Icon:  https://oblador.github.io/react-native-vector-icons/
+=>Icon Type : https://reactnativeelements.com/docs/components/icon
