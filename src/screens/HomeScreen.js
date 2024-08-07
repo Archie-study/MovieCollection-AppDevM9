@@ -209,6 +209,7 @@ const HomeScreen = (props) => {
                                             image={{uri: item.imageLink}}
                                             title={item.title}
                                             viewers={item.viewers}
+                                            isHome={true}
                                         />
                                     )
                                 }}

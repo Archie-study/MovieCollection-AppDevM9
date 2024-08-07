@@ -1,5 +1,6 @@
 import { View, Text, FlatList, StyleSheet, Image } from 'react-native'
 import React, { useEffect } from 'react'
+import { ShowMovie } from '../components/MovieComponent';
 
 const MostViewedScreen = (props) => {
     const { route } = props;
@@ -17,14 +18,25 @@ const MostViewedScreen = (props) => {
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => {
                     return (
-                        <View style={styles.movieContainer}>
-                            <Image 
-                                style={styles.movieImage}
-                                source={{ uri: item.imageLink }}
-                            />
-                        </View>
+                        <ShowMovie 
+                            image={{uri: item.imageLink}}
+                            title={item.title}
+                            viewers={item.viewers}
+                        />
+
+
+                        // <View style={styles.movieContainer}>
+                        //     <Image 
+                        //         style={styles.movieImage}
+                        //         source={{ uri: item.imageLink }}
+                        //     />
+                        // </View>
+                        
                     )
                 }}
+
+                numColumns={2}
+                key={2}
             />
         </View>
     )

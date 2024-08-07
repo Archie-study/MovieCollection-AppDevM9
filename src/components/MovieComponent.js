@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import { Icon } from "react-native-elements";
 
 export const ShowMovie = (props) => {
-    const { image, title, viewers } = props;
+    const { image, title, viewers, isHome } = props;
 
     // Add Dot every 3 digit numbers
     const numberWithCommas = (number) => {
@@ -11,7 +11,11 @@ export const ShowMovie = (props) => {
     }
 
     return (
-        <View style={styles.horizontalDataContainer}>
+        <View style={[
+                styles.horizontalDataContainer, 
+                { flex: isHome ? null : 1 }
+            ]}
+        >
             <Image 
                 style={styles.movieImage}  
                 source={image}
