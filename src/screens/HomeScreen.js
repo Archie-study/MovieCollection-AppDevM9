@@ -46,11 +46,19 @@ const HomeScreen = (props) => {
     };
 
     useEffect(() => {
+        const threeRecommended = [];
+
         const sortedRecommended = [...movieData].sort(compareRating)
         setRecommended(sortedRecommended)
 
         const sortedMoesViewed = [...movieData].sort(compareViewers)
         setMostViewedMovie(sortedMoesViewed)
+
+        for(let i = 0; i < 3; i++){
+            threeRecommended.push(sortedRecommended[i])
+        };
+
+        setRecommended(threeRecommended)
     }, []);
 
 
