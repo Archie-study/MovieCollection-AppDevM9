@@ -71,7 +71,7 @@ const HomeScreen = (props) => {
                 data={recommended}
                 keyExtractor={(item) => item.id}
                 contentContainerStyle={styles.flatListContainer}
-                
+
                 // Display the movie Vertically
                 renderItem={({item}) => {
                     return (
@@ -162,6 +162,15 @@ const HomeScreen = (props) => {
                     )
                 }}
 
+                // Show Something when Flatlist is Empty
+                ListEmptyComponent={
+                    <View style={{ alignItems: 'center'}}>
+                        <Text>
+                            No items in this category
+                        </Text>
+                    </View>
+                }   
+
 
                 // Display the movie horizontally
                 ListHeaderComponent={
@@ -187,7 +196,17 @@ const HomeScreen = (props) => {
                                             viewers={item.viewers}
                                         />
                                     )
-                                }}       
+                                }}
+                                contentContainerStyle={{ 
+                                    flex: mostViewedMovie.length === 0 ? 1 : null
+                                }}
+                                ListEmptyComponent={
+                                    <View style={{ alignItems: 'center', flex: 1}}>
+                                        <Text>
+                                            No items in this category
+                                        </Text>
+                                    </View>
+                                }
                             />
                             <View style={styles.mainCategoryContainer}>
                                 <View style={styles.categoryContainer}>
