@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList, StyleSheet, Image } from 'react-native'
+import { View, Text, FlatList, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import { movieData } from "../../data/MovieData";
 import { ShowMovie } from "../components/MovieComponent";
 import { useEffect, useState } from "react";
@@ -16,6 +16,9 @@ const HomeScreen = (props) => {
     
     // State to sort by Viewers
     const [ mostViewedMovie, setMostViewedMovie ] = useState([])
+
+    // State to see all the Most View Movie
+    const [ allMostViewed, setAllMostViewed ] = useState([]);
 
     // Sorting Data by rating
     const compareRating = (a, b) => {
@@ -54,6 +57,8 @@ const HomeScreen = (props) => {
 
         const sortedMostViewed = [...movieData].sort(compareViewers)
         setMostViewedMovie(sortedMostViewed)
+
+        setAllMostViewed(sortedMostViewed)
 
         for(let i = 0; i < 3; i++){
             threeRecommended.push(sortedRecommended[i])
@@ -181,6 +186,16 @@ const HomeScreen = (props) => {
                                     Most Viewed
                                 </Text>
                             </View>
+                            {/* See All Component */}
+                            <View style={styles.seeAllContainer}>
+                                <TouchableOpacity
+                                    onPress={
+                                        () => navigation.navigate('MostViewedlMovie', {allMostViewed})
+                                    }
+                                >
+                                    <Text style={styles.seeAllText}>See All</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
                     
                         <View>
@@ -295,6 +310,15 @@ const styles = StyleSheet.create({
     ratingStar: {
         width: 100,
         height: 20
+    },
+    seeAllContainer: {
+        flex: 1,
+        alignItems: 'flex-end',
+        justifyContent: 'center'
+    },
+    seeAllText: {
+        color: '#009688',
+        textDecorationLine: 'underline'
     }
 
 })
