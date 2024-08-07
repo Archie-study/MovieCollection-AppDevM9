@@ -4,8 +4,12 @@ import { movieData } from "../../data/MovieData";
 import { ShowMovie } from "../components/MovieComponent";
 import { useEffect, useState } from "react";
 import { Icon } from "react-native-elements";
+import { ButtonComponent } from "../components/ButtonComponent";
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
+
+    // Adding Navigation Props
+    const { navigation } = props;
 
     // State to sort by rating
     const [recommended, setRecommended] = useState([]);
@@ -135,6 +139,11 @@ const HomeScreen = () => {
                                         }
                                         {/* <Text>{item.rating}</Text> */}
                                     </View>
+
+                                    {/* BUTTON SEE DETAILS */}
+                                    <ButtonComponent 
+                                        onPress={() => navigation.navigate('DetailMovie', {item})}
+                                    />
                                     
                                 </View>
                             </View>
@@ -227,7 +236,6 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         flexDirection: 'row',
         alignItems: 'center',
-        letterSpacing: 5
     },
     yearContainer: {
         marginTop: 8,
