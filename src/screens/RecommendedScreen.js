@@ -6,6 +6,7 @@ const RecommendedScreen = (props) => {
 
     // Receiving Data
     const { route } = props;
+    const { navigation } = props
     const sortedRecommended = route.params.allRecommended;
 
         
@@ -25,6 +26,7 @@ const RecommendedScreen = (props) => {
                             // viewers={item.viewers}
                             isRecommended={true}
                             rating={item.rating}
+                            onPress={() => navigation.navigate('DetailMovie', {item})}
                         />
                     )
                 }}

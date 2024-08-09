@@ -9,6 +9,11 @@ const DetailMovieScreen = (props) => {
 
     // const { title, year } = route.params;
 
+    // Add Dot every 3 digit numbers
+    const numberWithCommas = (number) => {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
     useEffect(() => {
         console.log(movie)
         // console.log(title);
@@ -48,7 +53,7 @@ const DetailMovieScreen = (props) => {
                     />
                     <MovieExplanation 
                         name="Viewers"
-                        value={movie.viewers}
+                        value={numberWithCommas(movie.viewers)}
                     />
                     <MovieExplanation 
                         name="Rating"

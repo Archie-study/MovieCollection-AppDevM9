@@ -4,6 +4,7 @@ import { ShowMovie } from '../components/MovieComponent';
 
 const MostViewedScreen = (props) => {
     const { route } = props;
+    const { navigation } = props;
     const sortedMostViewed = route.params.allMostViewed
 
     useEffect(() => {
@@ -22,6 +23,7 @@ const MostViewedScreen = (props) => {
                             image={{uri: item.imageLink}}
                             title={item.title}
                             viewers={item.viewers}
+                            onPress={ () => navigation.navigate('DetailMovie', {item})}
                         />
 
 

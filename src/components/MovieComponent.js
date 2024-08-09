@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { Icon } from "react-native-elements";
+import { ButtonComponent } from "./ButtonComponent";
 
 export const ShowMovie = (props) => {
     const { image, title, viewers, isHome, isRecommended,rating } = props;
@@ -86,6 +87,16 @@ export const ShowMovie = (props) => {
                             <Text>{numberWithCommas(viewers)}</Text>
                         </View>
                     </View>
+            }
+
+
+            {
+                isHome ?
+                    null
+                    :
+                    <ButtonComponent 
+                        {...props}
+                    />
             }
         </View>
     )
