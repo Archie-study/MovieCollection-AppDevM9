@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import { Icon } from "react-native-elements";
 
 export const ShowMovie = (props) => {
-    const { image, title, viewers, isHome } = props;
+    const { image, title, viewers, isHome, isRecommended,rating } = props;
 
     // Add Dot every 3 digit numbers
     const numberWithCommas = (number) => {
@@ -25,7 +25,7 @@ export const ShowMovie = (props) => {
                 <Text style={styles.horizontalTitle}>{title}</Text>
             </View>
 
-
+{/* 
             <View style={styles.viewersContainer}>
                 <Icon 
                     name="eye" 
@@ -35,10 +35,58 @@ export const ShowMovie = (props) => {
                 <View style={styles.viewersText}>
                     <Text>
                         {numberWithCommas(viewers)}
-                    </Text>
+                    </Text> */}
                     {/* <Text>{viewers}</Text> */}
-                </View>
-            </View>
+                {/* </View>
+            </View> */}
+
+            {
+                isRecommended ?
+                    <View>
+                        {
+                            rating === 5 ? 
+                                <Image 
+                                    style={styles.ratingImage}
+                                    source={require('../../assets/images/five-stars.png')}
+                                />
+                                :
+                                rating === 4 ?
+                                    <Image 
+                                        style={styles.ratingImage}
+                                        source={require('../../assets/images/four-stars.png')}
+                                    />
+                                    :
+                                    rating === 3 ?
+                                        <Image 
+                                            style={styles.ratingImage}
+                                            source={require('../../assets/images/three-stars.png')}
+                                        />
+                                        :
+                                        rating === 2 ?
+                                            <Image 
+                                                style={styles.ratingImage}
+                                                source={require('../../assets/images/two-stars.png')}
+                                            />
+                                            :
+                                            <Image 
+                                                style={styles.ratingImage}
+                                                source={require('../../assets/images/star.png')}
+                                            />
+
+                        }
+                    </View>
+                    :
+                    <View style={styles.viewersContainer}>
+                        <Icon 
+                            name="eye"
+                            type="ionicon"
+                            size={16}
+                        />
+                        <View style={styles.viewersText}>
+                            <Text>{numberWithCommas(viewers)}</Text>
+                        </View>
+                    </View>
+            }
         </View>
     )
 }
