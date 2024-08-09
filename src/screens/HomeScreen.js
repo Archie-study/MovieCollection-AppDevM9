@@ -20,6 +20,9 @@ const HomeScreen = (props) => {
     // State to see all the Most View Movie
     const [ allMostViewed, setAllMostViewed ] = useState([]);
 
+    // State to see all the Recommended movie
+    const [ allRecommended, setAllRecommended ] = useState([])
+
     // Sorting Data by rating
     const compareRating = (a, b) => {
         const ratingA = a.rating
@@ -59,6 +62,7 @@ const HomeScreen = (props) => {
         setMostViewedMovie(sortedMostViewed)
 
         setAllMostViewed(sortedMostViewed)
+        setAllRecommended(sortedRecommended)
 
         for(let i = 0; i < 3; i++){
             threeRecommended.push(sortedRecommended[i])
@@ -229,6 +233,15 @@ const HomeScreen = (props) => {
                                     <Text style={styles.categoryText}>
                                         Recommended
                                     </Text>
+                                </View>
+                                
+                                {/* Adding See All for Recommended Movie */}
+                                <View style={styles.seeAllContainer}>
+                                    <TouchableOpacity
+                                        onPress={() => navigation.navigate('Recommended', {allRecommended})}
+                                    >
+                                        <Text style={styles.seeAllText}>See All</Text>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                         </View>
